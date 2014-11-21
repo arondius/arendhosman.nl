@@ -7,7 +7,7 @@
 
 $background-color: #ea6900;
 
-$h-width: 0.669em;
+$h-width: 1.66 9em;
 
 html {
     font-size: 16px;
@@ -27,21 +27,16 @@ body {
 }
 
 #container {
-    max-width:1200px;
-    padding: 3rem;
+    max-width: 1200px;
+    padding: 10%;
     min-height: 100%;
+    background: url(../img/ah.svg) 5% 5% #ea6900 no-repeat;
+    background-size: 40%;
 }
 
 h1 {
-    font: 4em "Helvetica Neue", Arial, Sans;
-    font-weight: bold;
-    margin: 0;
-    padding:  0 0 0 0.005em;
-    line-height: 0.715em;
-    span {
-        display: block;
-        margin-left: -0.074em;
-    }
+    text-indent: -9999em;
+
 }
 
 .timeline {    
