@@ -4,10 +4,24 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 @import "compass/reset";
+@import "compass/";
+@import "compass/typography/vertical_rhythm";
+@import "compass/utilities/general/clearfix";
+@import "compass/utilities/general/float";
 
 $background-color: #ea6900;
 
-$h-width: 1.66 9em;
+.float-left {
+    @include float-left;
+}
+
+.float-right {
+    @include float-right;
+}
+
+.clearfix {
+      @include pie-clearfix;  
+}
 
 html {
     font-size: 16px;
@@ -21,39 +35,58 @@ body {
     font: 16px/1.4em "Helvetica Neue", "Helvetica", Arial, sans-serif;  
     color: #fff;
     background: url(../img/selfie.png)  right bottom $background-color no-repeat;
-    background-size: contain;    
+    background-size: 50%;    
     height: 100%;
     line-height: 1.4;
 }
 
 #container {
     max-width: 1200px;
-    padding: 10%;
+    margin: 5% ;
     min-height: 100%;
-    background: url(../img/ah.svg) 5% 5% #ea6900 no-repeat;
-    background-size: 40%;
+    background-size: 18em;
+    @include pie-clearfix;
 }
 
-h1 {
-    text-indent: -9999em;
+.logo {
+    
+    width: 18em;
+    height: 9em;
+    
+    
+    h1 {
+        text-indent: -9999em;
+
+    }
 
 }
 
-.timeline {    
-    background:linear-gradient(to right, #fff $h-width, rgba(255,255,255, 0) $h-width);
+.timeline-container, .skills-container {    
+    margin: 0 1%;
+}
+
+.timeline-container {
+    background: url(../img/logo.svg) 0 0 transparent no-repeat;
+    background-size: 18em;
+    margin-bottom: 1em;
+}
+
+.timeline {
     margin: 0;
     padding: 1rem 0;
     list-style: none;
-    width: 50vw;
     counter-reset: li 2015;
+    background-size: 10%;
+    max-width: 30em;
+    
 
-    li {
-        padding-left: 4em;
+    .timeline-item {
+        padding-left: 6em;
         position: relative;
         margin-bottom: 2rem;
     }
 
-    li:before {
+    .timeline-item:before {
         content: counter(li);
         counter-increment: li -1;
         color: $background-color;
@@ -66,10 +99,25 @@ h1 {
         height: 6rem;
         position: absolute;
         display: block; 
-        left: -2.6rem;
+        left: -1.3rem;
         line-height:6rem;
-        font-weight: bold;
-        
+        font-weight: bold;        
+    }
+
+    .timeline-item:nth-child(2):before {
+        counter-reset: li 2013;        
+    }
+
+     .timeline-item:nth-child(3):before {
+        counter-reset: li 2011;        
+    }
+
+     .timeline-item:nth-child(4):before {
+        counter-reset: li 2010;        
+    }
+
+     .timeline-item:nth-child(5):before {
+        counter-reset: li 2007;        
     }
 
     h2 {
@@ -89,6 +137,65 @@ h1 {
         font-size: 1rem;
     }
 };
+
+.skills-container {
+     padding-top: 1em;
+}
+
+.skills {
+    min-width: 10.5em;
+}
+
+.skills dt, .skills dd {
+    @include float-left;
+    width: 48%;
+    margin: 0 1%;
+}
+
+.skills dt {
+    clear: left;
+    text-align: right;    
+}
+
+/*
+*
+*   Rating HTML/CSS adapted from CSS tricks: http://css-tricks.com/star-ratings/ 
+* 
+ */
+
+.skills dd {
+    direction: rtl;
+}
+
+.skills span
+{
+    width: 0.5em;
+    height: 0.5em;
+    border-radius: 50%;
+    background-color: transparent;
+    border: 1px solid #fff;
+    display: inline-block;
+}
+
+.skills .s5 span {
+    background-color: #fff;
+}
+
+.skills .s4 span:nth-child(1) ~ span {
+    background-color: #fff;
+}
+
+.skills .s3 span:nth-child(2) ~ span {
+    background-color: #fff;
+}
+
+.skills .s2 span:nth-child(3) ~ span {
+    background-color: #fff;
+}
+
+.skills .s1 span:nth-child(4) ~ span {
+    background-color: #fff;
+}
 
 a:link, a:visited {
     color:#fff;
