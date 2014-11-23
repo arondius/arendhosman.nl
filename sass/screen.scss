@@ -9,6 +9,10 @@
 @import "compass/utilities/general/clearfix";
 @import "compass/utilities/general/float";
 
+$base-font-size: 16px;
+$base-line-height: 24px;
+@include establish-baseline();
+
 $background-color: #ea6900;
 
 .float-left {
@@ -35,7 +39,7 @@ body {
     font: 16px/1.4em "Helvetica Neue", "Helvetica", Arial, sans-serif;  
     color: #fff;
     background: url(../img/selfie.png)  right bottom $background-color no-repeat;
-    background-size: 50%;    
+    background-size: 50%;
     height: 100%;
     line-height: 1.4;
 }
@@ -67,6 +71,7 @@ body {
 
 .timeline-container {
     background: url(../img/logo.svg) 0 0 transparent no-repeat;
+        /* background: url(../img/logo.png) 0 0 transparent no-repeat; */
     background-size: 18em;
     margin-bottom: 1em;
 }
@@ -94,14 +99,16 @@ body {
         border-radius: 50%;
         font-size: 2rem;
         text-align: center;
-
-        width: 6rem;
-        height: 6rem;
+	
+	
+        width: 3em;
+        height: 3em;
         position: absolute;
         display: block; 
         left: -1.3rem;
-        line-height:6rem;
-        font-weight: bold;        
+        line-height:3em; /* Would love to use rem units, but it seems IE11 has a bug with rendering line-height in rem units */
+        font-weight: bold; 
+        vertical-align: middle;
     }
 
     .timeline-item:nth-child(2):before {
